@@ -8,7 +8,6 @@
     Angular UI
 
 # Build Steps
-
   git clone https://github.com/attain-shyam/tech-challenge.git
   Navigate to the project folder
   Run below command at terminal
