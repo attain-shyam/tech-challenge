@@ -1,5 +1,5 @@
 # This is Prototype Project for Technical Demo.
-# Includes
+# Included Technologies
     Spring RESTful Endpoints
     Spring Security for Login
     Gradle Build
