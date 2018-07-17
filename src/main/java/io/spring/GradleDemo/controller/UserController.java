@@ -19,7 +19,12 @@ public class UserController {
         return userJpaRepository.findAll();
     }
 
-    @GetMapping(value = "/{name}")
+    @GetMapping(value = "/greeting")
+    public String getGreeting(){
+        return "Hello Tech Challenge!";
+    }
+
+    @GetMapping(value = "/getName/{name}")
     public Users findByName(@PathVariable final String name){
         return userJpaRepository.findByName(name);
     }

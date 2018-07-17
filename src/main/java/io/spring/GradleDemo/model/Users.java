@@ -11,7 +11,8 @@ public class Users {
     private Long id;
     private String name;
     private String teamName;
-    private Integer salary;
+//    private Integer salary;
+    private String address;
 
     @Id
     @GeneratedValue
@@ -39,29 +40,44 @@ public class Users {
         this.teamName = teamName;
     }
 
-    public Integer getSalary() {
-        return salary;
+//    public Integer getSalary() {
+//        return salary;
+//    }
+//
+//    public void setSalary(Integer salary) {
+//        this.salary = salary;
+//    }
+
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setSalary(Integer salary) {
-        this.salary = salary;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Users users = (Users) o;
-        return Objects.equals(id, users.id) &&
-                Objects.equals(name, users.name) &&
-                Objects.equals(teamName, users.teamName) &&
-                Objects.equals(salary, users.salary);
+
+        if (!id.equals(users.id)) return false;
+        if (name != null ? !name.equals(users.name) : users.name != null) return false;
+        if (teamName != null ? !teamName.equals(users.teamName) : users.teamName != null) return false;
+        return address != null ? address.equals(users.address) : users.address == null;
+
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, name, teamName, salary);
+        int result = id.hashCode();
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (teamName != null ? teamName.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -70,7 +86,8 @@ public class Users {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", teamName='" + teamName + '\'' +
-                ", salary=" + salary +
+                ", address='" + address + '\'' +
                 '}';
     }
+
 }
